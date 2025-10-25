@@ -258,15 +258,6 @@ button:active {
     border-left-color: #374151; /* gray-700 */
 }
 
-.dark .gallery-toggle {
-    background-color: #374151; /* gray-700 */
-    color: #e5e7eb; /* gray-200 - Brighter gallery toggle icon */
-}
-
-.dark .gallery-toggle:hover {
-    background-color: #4b5563; /* gray-600 */
-}
-
 .dark .gallery-title,
 .dark .gallery-counter,
 .dark .gallery-item-prompt /* Make prompt text brighter */ {
