@@ -15,6 +15,7 @@
     flex-direction: column;
     z-index: 40;
     box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+    overflow: visible; /* Ensure toggle button outside sidebar is accessible */
 }
 
 /* Collapsed State */
@@ -57,6 +58,14 @@
         border-bottom: none;
         background-color: white;
         box-shadow: 0 -2px 6px rgba(0,0,0,0.05);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Hide SVG on mobile since we show a drag pill instead */
+    .gallery-toggle svg {
+        display: none;
     }
 
     /* Drag pill inside toggle */
@@ -105,11 +114,42 @@
     cursor: pointer;
     transition: background-color 0.2s, color 0.2s;
     box-shadow: -2px 0 5px rgba(0, 0, 0, 0.05);
+    z-index: 50; /* Ensure button is above other elements */
+    box-sizing: border-box; /* Include border in width/height */
+    padding: 0; /* Remove any default padding */
+    margin: 0; /* Remove any default margin */
+    -webkit-appearance: none; /* Remove default browser button styling */
+    appearance: none;
+    outline: none; /* We'll handle focus states ourselves */
+}
+
+.gallery-toggle::before {
+    content: '';
+    position: absolute;
+    top: -4px; /* Extend click area beyond visible button */
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    /* This invisible area extends the clickable zone */
 }
 
 .gallery-toggle:hover {
     background-color: #f9fafb;
     color: var(--primary); /* Assuming --primary is defined elsewhere */
+}
+
+.gallery-toggle:active {
+    background-color: #e5e7eb;
+    transform: translateY(-50%); /* Maintain position, override global button:active scale */
+}
+
+.gallery-toggle svg {
+    pointer-events: none; /* Ensure clicks pass through to the button */
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0; /* Prevent SVG from shrinking */
+    position: relative; /* Ensure SVG is above pseudo-element */
+    z-index: 1;
 }
 
 /* Header Section */
