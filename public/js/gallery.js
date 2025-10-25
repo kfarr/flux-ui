@@ -354,7 +354,7 @@ window.FluxGallery = {
                     </div>
                     <div style="display:flex;align-items:center;gap:6px;">
                         <label for="gallery-page-size" style="font-size:12px;color:#6b7280;">Per page</label>
-                        <select id="gallery-page-size" style="padding:6px 8px;border:1px solid #e5e7eb;border-radius:6px;background:#fff;">
+                        <select id="gallery-page-size" style="padding:6px 8px;border:1px solid #e5e7eb;border-radius:6px;">
                             <option value="12">12</option>
                             <option value="24" selected>24</option>
                             <option value="48">48</option>
